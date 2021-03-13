@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// Pass through prop called onFormSubmit
 const SearchBar = ({ onFormSubmit }) => {
     // Declares state
     const [term, setTerm] = useState('');
