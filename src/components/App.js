@@ -5,7 +5,9 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail'
 
 const App = () => {
+    // Used to manage a list of videos
     const [videos, setVideos] = useState([]);
+    // Used to manage the selected video
     const [selectedVideo, setSelectedVideo] = useState(null);
  
     // Included empty array because we want this to run only one time
@@ -26,10 +28,6 @@ const App = () => {
 
     };
 
-    const onVideoSelect = (video) => {
-        setSelectedVideo(video);
-    };
-
     return (
             <div className="ui container">
                 <SearchBar onFormSubmit={onTermSubmit} />
@@ -39,7 +37,10 @@ const App = () => {
                         <VideoDetail video={selectedVideo} />
                     </div>
                     <div className="five wide column">
-                        <VideoList onVideoSelect={onVideoSelect} videos={videos} />
+                        <VideoList 
+                            onVideoSelect={setSelectedVideo} 
+                            videos={videos} 
+                        />
                     </div>
                 </div>
                 </div>
