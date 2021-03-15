@@ -5,28 +5,10 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail'
 
 const App = () => {
-    // Used to manage a list of videos
-    const [videos, setVideos] = useState([]);
     // Used to manage the selected video
     const [selectedVideo, setSelectedVideo] = useState(null);
  
-    // Included empty array because we want this to run only one time
-    // This is roughly equivalent to componentDidMount
-    useEffect(() => {
-        onTermSubmit('buildings');
-    }, [])
-
-    const onTermSubmit = async (term) => {
-        const response = await youtube.get('/search', {
-            params: {
-                q: term
-            }
-        });
-
-        setVideos(response.data.items);
-        setSelectedVideo(response.data.items[0]);
-
-    };
+// setSelectedVideo(response.data.items[0]);
 
     return (
             <div className="ui container">
